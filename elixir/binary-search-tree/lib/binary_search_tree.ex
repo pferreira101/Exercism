@@ -28,6 +28,12 @@ defmodule BinarySearchTree do
   def in_order(nil), do: []
 
   def in_order(tree) do
-    in_order(tree.left) ++ [tree.data] ++ in_order(tree.right)
+    traverse(tree, [])
+  end
+
+  defp traverse(nil, acc), do: acc
+
+  defp traverse(tree, acc) do
+    traverse(tree.left, [tree.data | traverse(tree.right, acc)])
   end
 end
