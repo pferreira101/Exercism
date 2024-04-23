@@ -17,6 +17,6 @@ defmodule ResistorColor do
   @spec code(atom) :: integer()
 
   def code(color) do
-    Map.get(@color_maps, color)
+    @color_maps[color]
   end
 end
