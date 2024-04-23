@@ -12,9 +12,10 @@ defmodule Sublist do
     end
   end
 
-  defp sublist?(l1, l2) when length(l1) > length(l2), do: false
+  defp sublist?([], _), do: true
 
   defp sublist?(l1, l2) do
-    Enum.take(l2, length(l1)) === l1 or sublist?(l1, tl(l2))
+    Enum.chunk_every(l2, length(l1), 1, :discard)
+    |> Enum.any?(&(&1 === l1))
   end
 end
