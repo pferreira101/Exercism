@@ -1,6 +1,4 @@
 defmodule IsbnVerifier do
-  alias Logger.Backends.Internal
-
   @doc """
     Checks if a string is a valid ISBN-10 identifier
 
